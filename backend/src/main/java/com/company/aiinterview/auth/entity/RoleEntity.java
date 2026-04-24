@@ -1,4 +1,4 @@
-package com.company.aiinterview.aiinterview.entity;
+package com.company.aiinterview.auth.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

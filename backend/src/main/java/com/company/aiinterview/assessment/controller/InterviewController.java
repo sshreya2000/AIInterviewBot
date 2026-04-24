@@ -5,35 +5,39 @@ import com.company.aiinterview.assessment.dto.request.SubmitTextAnswerRequestDto
 import com.company.aiinterview.assessment.dto.response.NextQuestionResponseDto;
 import com.company.aiinterview.assessment.dto.response.StartInterviewResponseDto;
 import com.company.aiinterview.assessment.dto.response.SubmitAnswerResponseDto;
+import com.company.aiinterview.assessment.service.InterviewSessionService;
+import com.company.aiinterview.assessment.service.QuestionOrchestrationService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/assessment/interview")
+@RequiredArgsConstructor
 public class InterviewController {
+
+    private final InterviewSessionService interviewSessionService;
+    private final QuestionOrchestrationService questionOrchestrationService;
 
     @PostMapping("/start")
     public ResponseEntity<StartInterviewResponseDto> start(@RequestBody StartInterviewRequestDto request) {
-        // TODO: Create interview session and first question.
-        return ResponseEntity.ok(new StartInterviewResponseDto());
+        return ResponseEntity.ok(interviewSessionService.startSession(request));
     }
 
     @GetMapping("/{sessionId}/next-question")
     public ResponseEntity<NextQuestionResponseDto> nextQuestion(@PathVariable Long sessionId) {
-        // TODO: Fetch/generate next question.
-        return ResponseEntity.ok(new NextQuestionResponseDto());
+        return ResponseEntity.ok(questionOrchestrationService.nextQuestion(sessionId));
     }
 
     @PostMapping("/{sessionId}/answer/text")
     public ResponseEntity<SubmitAnswerResponseDto> submitTextAnswer(@PathVariable Long sessionId,
                                                                      @RequestBody SubmitTextAnswerRequestDto request) {
-        // TODO: Evaluate and persist answer.
-        return ResponseEntity.ok(new SubmitAnswerResponseDto());
+        return ResponseEntity.ok(interviewSessionService.submitTextAnswer(sessionId, request));
     }
 
     @PostMapping("/{sessionId}/complete")
     public ResponseEntity<Void> complete(@PathVariable Long sessionId) {
-        // TODO: Mark interview complete and trigger result generation.
+        interviewSessionService.completeSession(sessionId);
         return ResponseEntity.ok().build();
     }
 }

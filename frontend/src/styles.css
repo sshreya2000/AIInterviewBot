@@ -1,1 +1,147 @@
-body { font-family: Arial, sans-serif; margin: 0; padding: 16px; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f4f6fb;
+  color: #1a1a2e;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  padding: 28px 32px;
+  margin-bottom: 24px;
+}
+
+h1 { font-size: 1.8rem; margin-bottom: 8px; }
+h2 { font-size: 1.3rem; margin-bottom: 12px; color: #2d3a8c; }
+h3 { font-size: 1.05rem; margin-bottom: 8px; }
+
+.btn {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+.btn-primary { background: #2d3a8c; color: #fff; }
+.btn-primary:hover { background: #1e2a6e; }
+.btn-primary:disabled { background: #9aa3c8; cursor: not-allowed; }
+.btn-secondary { background: #e8eaf6; color: #2d3a8c; }
+.btn-secondary:hover { background: #c5cae9; }
+.btn-danger { background: #e53935; color: #fff; }
+.btn-danger:hover { background: #b71c1c; }
+
+input[type='text'], input[type='email'], input[type='password'], textarea, select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid #c5cae9;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  margin-top: 6px;
+  margin-bottom: 14px;
+  outline: none;
+  transition: border 0.2s;
+}
+input:focus, textarea:focus, select:focus { border-color: #2d3a8c; }
+
+label { font-weight: 600; font-size: 0.9rem; color: #444; }
+
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-right: 6px;
+}
+.badge-blue { background: #e3f2fd; color: #1565c0; }
+.badge-green { background: #e8f5e9; color: #2e7d32; }
+.badge-orange { background: #fff3e0; color: #e65100; }
+.badge-red { background: #ffebee; color: #c62828; }
+
+.score-bar-wrap { background: #e8eaf6; border-radius: 8px; height: 10px; margin: 6px 0 14px; }
+.score-bar { height: 10px; border-radius: 8px; background: #2d3a8c; transition: width 0.5s; }
+
+.upload-zone {
+  border: 2px dashed #c5cae9;
+  border-radius: 10px;
+  padding: 28px;
+  text-align: center;
+  cursor: pointer;
+  transition: border 0.2s;
+  margin-bottom: 14px;
+}
+.upload-zone:hover { border-color: #2d3a8c; }
+.upload-zone.success { border-color: #43a047; background: #f1f8e9; }
+
+.question-meta { display: flex; gap: 8px; margin-bottom: 12px; }
+
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.result-item {
+  background: #f4f6fb;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+.result-item .score { font-size: 2rem; font-weight: 800; color: #2d3a8c; }
+.result-item .label { font-size: 0.8rem; color: #666; margin-top: 4px; }
+
+.recommendation {
+  font-size: 1.4rem;
+  font-weight: 800;
+  padding: 10px 28px;
+  border-radius: 30px;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+.rec-hire { background: #e8f5e9; color: #2e7d32; }
+.rec-hold { background: #fff3e0; color: #e65100; }
+.rec-reject { background: #ffebee; color: #c62828; }
+
+.error-msg { color: #c62828; font-size: 0.88rem; margin-top: 4px; }
+.success-msg { color: #2e7d32; font-size: 0.88rem; margin-top: 4px; }
+
+.nav {
+  background: #2d3a8c;
+  color: #fff;
+  padding: 14px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0;
+}
+.nav a { color: #fff; text-decoration: none; font-weight: 600; }
+
+.page-title { font-size: 1.5rem; font-weight: 800; margin-bottom: 24px; color: #2d3a8c; }
+
+.step-indicator {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 28px;
+  align-items: center;
+}
+.step { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; }
+.step-active { background: #2d3a8c; color: #fff; }
+.step-done { background: #43a047; color: #fff; }
+.step-inactive { background: #e8eaf6; color: #9aa3c8; }
+.step-line { flex: 1; height: 2px; background: #e8eaf6; }
+
+textarea { resize: vertical; min-height: 100px; }

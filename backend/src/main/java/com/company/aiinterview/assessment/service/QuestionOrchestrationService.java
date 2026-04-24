@@ -1,5 +1,7 @@
 package com.company.aiinterview.assessment.service;
 
+import com.company.aiinterview.assessment.dto.response.NextQuestionResponseDto;
+
 public interface QuestionOrchestrationService {
-    void placeholder();
+    NextQuestionResponseDto nextQuestion(Long sessionId);
 }

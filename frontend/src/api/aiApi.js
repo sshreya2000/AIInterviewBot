@@ -1,3 +1,14 @@
 import http from './httpClient';
-// TODO: Implement aiApi API wrappers using Axios.
-export default {};
+
+const aiApi = {
+  generateQuestion: (payload) =>
+    http.post('/api/v1/ai/question', payload),
+
+  evaluateAnswer: (payload) =>
+    http.post('/api/v1/ai/evaluate', payload),
+
+  extractSkills: (payload) =>
+    http.post('/api/v1/ai/extract-skills', payload),
+};
+
+export default aiApi;

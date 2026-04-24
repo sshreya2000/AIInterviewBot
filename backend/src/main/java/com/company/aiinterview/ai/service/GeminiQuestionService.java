@@ -1,5 +1,8 @@
 package com.company.aiinterview.ai.service;
 
+import com.company.aiinterview.ai.dto.request.GenerateQuestionRequestDto;
+import com.company.aiinterview.ai.dto.response.GenerateQuestionResponseDto;
+
 public interface GeminiQuestionService {
-    void placeholder();
+    GenerateQuestionResponseDto generateQuestion(GenerateQuestionRequestDto request);
 }

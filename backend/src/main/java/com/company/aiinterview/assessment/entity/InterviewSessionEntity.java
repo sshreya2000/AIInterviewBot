@@ -1,9 +1,8 @@
-package com.company.aiinterview.aiinterview.entity;
+package com.company.aiinterview.assessment.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.*;
-import java.util.*;
 
 @Getter
 @Setter
@@ -16,7 +15,15 @@ public class InterviewSessionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long candidateProfileId;
+    private String candidateName;
+    private Integer yearsOfExperience;
+    private String roleApplied;
+    @Column(columnDefinition = "TEXT")
+    private String resumeSkillsCsv;
+    @Column(columnDefinition = "TEXT")
+    private String inferredSkillsCsv;
+    @Column(columnDefinition = "TEXT")
+    private String jdSkillsCsv;
     private String mode;
     private String status;
     private Instant startedAt;
